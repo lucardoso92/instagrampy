@@ -1,7 +1,7 @@
-import httpx
+from random import randint
 import time
+import httpx
 from fake_useragent import UserAgent
-
 
 class Instagram:
     def __init__(self):
@@ -9,8 +9,8 @@ class Instagram:
         self.session = httpx.Client()
         self.session.headers.update({
             'User-Agent': self.__ua.chrome,
-            'x-instagram-ajax': '1234',  # TODO: gerar randomicamente
-            'x-ig-app-id': '936619743392459'
+            'x-instagram-ajax': str(randint(1000, 9999)),
+            'x-ig-app-id': '936619743392459' # é estático
         })
         self.host_url = 'https://www.instagram.com'
         self.set_cookies()
@@ -49,9 +49,8 @@ class Instagram:
             'x-csrftoken': self.session.cookies.get('csrftoken')
         }
         response = self.session.post(url=url, data=payload, headers=headers)
-        if response.json()['status'] == 'ok':
-            return True
-        return False
+        
+        assert response.json()['status'] == 'ok', 'Failed to login'
 
     def add_comments(self, post_url, text):
         post_id = self.get_post_id(post_url)
