@@ -3,12 +3,12 @@
 ## Instalação
 
 ```bash
-pip install instagrampy
+pip install git+https://github.com/uxcardoso/instagrampy.git
 ```
 ou upgrade
 
 ```bash
-pip install instagrampy --upgrade
+pip install git+https://github.com/uxcardoso/instagrampy.git --upgrade
 ```
 ## Quick Start
 Este módulo (Não oficial), tem como objetivo a criação de bots utilizando as requisições utilizados pelo site do Instagram, tendo em vista que não é uma integração oficial a conta utilizada para realizar o bot corre o risco de ser bloqueada ou banida da plataforma.
