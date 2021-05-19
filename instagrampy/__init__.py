@@ -1,0 +1,1 @@
+from .instagrampy import Instagram
