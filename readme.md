@@ -20,5 +20,5 @@ from instagrampy import Instagram
 
 insta = Instagram()
 insta.login('SEU_USUARIO', 'SUA SENHA') # realiza o login
-insta.follow_unfollow(user='acdc', action='follow') # começa a seguir a @acdc
+insta.follow_unfollow(username='acdc', action='follow') # começa a seguir a @acdc
 ```
