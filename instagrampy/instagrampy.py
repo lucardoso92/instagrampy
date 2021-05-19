@@ -51,6 +51,7 @@ class Instagram:
         }
         response = self.session.post(url=url, data=payload, headers=headers)
 
+        assert response.json()['status'] == 'ok', 'Failed to login'
         assert response.json()['authenticated'] == True, 'Failed to login'
 
     def add_comments(self, post_url, text):
